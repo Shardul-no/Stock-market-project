@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/support_style.css">
+    <title>Support - Fundamental Analysis</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Support Center</h1>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('support') }}">Support</a></li>
+                <li class="nav-item"><a href="{{ url_for('info') }}">Info</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h2>Need Help with Fundamental Analysis?</h2>
+            <p>Find answers to common questions and get the support you need.</p>
+        </div>
+    </header>
+    
+    <main class="content">
+        <section class="faq">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-item">
+                <h3>1. What is fundamental analysis?</h3>
+                <p>Fundamental analysis is a method of evaluating a company's intrinsic value by examining its financial statements, management team, industry trends, and competitive position.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. How do I conduct fundamental analysis?</h3>
+                <p>To conduct fundamental analysis, gather financial data, analyze financial statements, evaluate management, assess industry trends, and determine the company’s competitive position.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. What are the benefits of fundamental analysis?</h3>
+                <p>Fundamental analysis helps investors make informed decisions, create long-term wealth, and manage risk effectively.</p>
+            </div>
+        </section>
+    </main>
+    
+    <section class="stock-status">
+        <h2>NIFTY 50 Status</h2>
+        {% if status %}
+            <p class="status-text {{ status }}">
+                NIFTY 50 is <strong>{{ status }}</strong> {{ icon }} 
+                <br> Current Price: <strong>₹{{ "%.2f"|format(price) }}</strong>
+            </p>
+        {% else %}
+            <p class="status-text error">Could not retrieve market data.</p>
+        {% endif %}
+    </section>    
+
+    <footer class="footer">
+        <p>&copy; 2025 Fundamental Analysis Support. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Filter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <!--- <p style="background-image: url('../static/d1.jpeg');"></p> --->
+
+    <div class="navbar">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('support') }}">Support</a></li>
+                <li class="nav-item"><a href="{{ url_for('info') }}">Info</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section id="profile">
+        <div class="section">
+            <h1 class="title">Analyse,</h1>
+            <h2 class="title">Then <i>Leap.</i></h2>
+            <h3 style="color:black; text-align:center;">Your financial future starts here.</h3>
+
+            <div class="container mt-5">
+                <h2 class="sub_tit">Company Filter</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="sector">Select Sector:</label>
+                        <select class="form-control dropdown" id="sector" name="sector" required>
+                            <option value="">Select a sector</option>
+                            {% for sector in sectors %}
+                            <option value="{{ sector }}">{{ sector }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="risk_apetite">Select Risk Appetite:</label>
+                        <select class="form-control dropdown" id="risk_apetite" name="risk_apetite" required>
+                            <option value="">Select risk appetite</option>
+                            <option value="High">High</option>
+                            <option value="Mid">Mid</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn">Filter</button>
+                </form>
+
+                {% if data is not none %}
+                <h3 class="mt-5">Filtered Companies</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Sector</th>
+                            <th>Market Cap (in Crores)</th>
+                            <th>Annual Return (%)</th>
+                            <th>Market Cap Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in data.iterrows() %}
+                        <tr>
+                            <td>{{ row['Ticker'] }}</td>
+                            <td>{{ row['Sector'] }}</td>
+                            <td>{{ (row['Market Cap'] / 10000000) | round(2) }} Crores</td>
+                            <td>{{ (row['Annual Return (%)'] | round(2)) }}%</td>
+                            <td>{{ row['Market Cap Category'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>No data available. Please select a sector and risk appetite.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

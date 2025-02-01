@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url(static/d1.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: rgb(128, 140, 167);
+  
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all 300ms ease;
+}
+
+a:hover {
+  color: rgb(255, 0, 0);
+  text-decoration: underline;
+}
+
+.logo {
+  font-size: 2rem;
+  cursor: default;
+}
+
+.section {
+  padding-top: 8vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 11vh;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-input {
+  width: 350px;
+  height: 40px;
+  border-radius: 9px 0 0 9px;
+  border: none;
+  padding-left: 10px;
+}
+
+.search-icon {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: white;
+  border-radius: 0 9px 9px 0;
+  cursor: pointer;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.dropdown:hover {
+  border-color: orange;
+}
+
+.btn {
+  background-color: rgb(128, 140, 167);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(85, 105, 135);
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: rgb(128, 140, 167);
+  color: white;
+}
+
+.sub_tit{
+  font-size: larger;
+}
+
+.navbar {
+  background-color: #333; /* Background color of the navbar */
+  padding: 10px 20px; /* Padding around the navbar */
+}
+
+.nav-list {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.nav-item {
+  margin-left: 20px; /* Space between items */
+}
+
+.nav-item a {
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Text color */
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-item a:hover {
+  color: #ffcc00; /* Change color on hover */
+}
